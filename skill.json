@@ -4,12 +4,12 @@
       "locales": {
         "en-US": {
           "name": "driving-directions",
-          "summary": "Sample Short Description",
-          "description": "Sample Full Description",
+          "summary": "Get driving directions from Alexa",
+          "description": "Alexa can help you quickly get driving time and directions to your destination",
           "examplePhrases": [
-            "Alexa open hello world",
-            "hello",
-            "help"
+            "Alexa open driving directions",
+            "How long does it take to get to Embarcadero?",
+            "Help"
           ],
           "keywords": []
         },
