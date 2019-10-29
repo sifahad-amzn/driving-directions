@@ -1,7 +1,7 @@
 {
     "interactionModel": {
         "languageModel": {
-            "invocationName": "hola mundo",
+            "invocationName": "drive timero",
             "intents": [
                 {
                     "name": "AMAZON.CancelIntent",

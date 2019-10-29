@@ -1,9 +1,75 @@
 {
   "deploy_settings": {
     "default": {
-      "skill_id": "",
+      "skill_id": "amzn1.ask.skill.37369b62-5071-4ccd-a397-5b4585678daf",
       "was_cloned": false,
-      "merge": {}
+      "merge": {},
+      "resources": {
+        "manifest": {
+          "eTag": "2c98428742a4afa824101c73c617a8be"
+        },
+        "interactionModel": {
+          "de-DE": {
+            "eTag": "e9890bae9c6488afd9be64f7ab1625fd"
+          },
+          "en-CA": {
+            "eTag": "130899fcf4dfd65a40885cb3fa33c451"
+          },
+          "en-AU": {
+            "eTag": "cfe2a34d0a4a135863ef85ad27569999"
+          },
+          "en-IN": {
+            "eTag": "ffa7edbdab74f387afa7bf81157e673c"
+          },
+          "en-GB": {
+            "eTag": "3c47fc6961d044bde52bc2bc8f34d80e"
+          },
+          "es-ES": {
+            "eTag": "e5e6b22450f9d1811215f7293f01887d"
+          },
+          "es-US": {
+            "eTag": "81142ee5d531b080870e0b1541789e27"
+          },
+          "en-US": {
+            "eTag": "6791922957a5d556c62ed8a38aaaec06"
+          },
+          "fr-CA": {
+            "eTag": "55cc2bdddff17f35aac73309974ab39d"
+          },
+          "hi-IN": {
+            "eTag": "a7c84917bd7a104a6c863a6934fd7059"
+          },
+          "ja-JP": {
+            "eTag": "b6fbd3104fe6285372b6b4df59c96de5"
+          },
+          "es-MX": {
+            "eTag": "220d5f544d3af6fae80d5d88c58e8c12"
+          },
+          "it-IT": {
+            "eTag": "5ee1384253343abede49b01776d4f776"
+          },
+          "fr-FR": {
+            "eTag": "29946ffec930f6f6f95ff2054bbd40c2"
+          },
+          "pt-BR": {
+            "eTag": "b5b0bdd0ffa79e52f2730cf43c0256e5"
+          }
+        },
+        "lambda": [
+          {
+            "alexaUsage": [
+              "custom/default"
+            ],
+            "arn": "arn:aws:lambda:us-east-1:905570577323:function:ask-custom-driving-directions-default",
+            "awsRegion": "us-east-1",
+            "codeUri": "lambda/custom",
+            "functionName": "ask-custom-driving-directions-default",
+            "handler": "index.handler",
+            "revisionId": "b94ea396-0f3d-443f-80fc-ab74d8048e31",
+            "runtime": "nodejs8.10"
+          }
+        ]
+      }
     }
   }
 }

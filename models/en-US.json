@@ -29,6 +29,13 @@
                     ]
                 },
                 {
+                    "name": "GetDriveTimeIntent",
+                    "slots": [],
+                    "samples": [
+                        "how long"
+                    ]
+                },
+                {
                     "name": "AMAZON.NavigateHomeIntent",
                     "samples": []
                 },
