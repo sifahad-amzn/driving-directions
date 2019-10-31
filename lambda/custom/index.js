@@ -9,6 +9,8 @@ const i18n = require('i18next');
 // i18n strings for all supported locales
 const languageStrings = require('./languageStrings');
 
+const maps = require('./googlemaps');
+
 const LaunchRequestHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'LaunchRequest';
@@ -43,13 +45,22 @@ const GetDriveTimeIntentHandler = {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'GetDriveTimeIntent';
     },
-    handle(handlerInput) {
-
-        const speakOutput = 'It will take you 5 minutes to get to your location';
+    async handle(handlerInput) {
+        console.log('now handling');
+        let speakOutput = 'This is a test';
+        try{
+            await maps.getDirections("NASA Sunnyvale", "Google HQ").then(function(obj){
+                speakOutput = 'It will take you ' + obj.duration.text+ ' to get to your location';
+            }).catch(function(obj){
+                speakOutput = 'It will take you 5 minutes to get to your location';
+            });
+        } catch(error){
+            speakOutput = 'I hit an error';
+        }
         return handlerInput.responseBuilder
-            .speak(speakOutput)
-            //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
-            .getResponse();
+        .speak(speakOutput)
+        //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
+        .getResponse();
     }
 };
 
@@ -86,7 +97,7 @@ const CancelAndStopIntentHandler = {
 /* *
  * FallbackIntent triggers when a customer says something that doesn’t map to any intents in your skill
  * It must also be defined in the language model (if the locale supports it)
- * This handler can be safely added but will be ingnored in locales that do not support it yet 
+ * This handler can be safely added but will be ingnored in locales that do not support it yet
  * */
 const FallbackIntentHandler = {
     canHandle(handlerInput) {
@@ -103,9 +114,9 @@ const FallbackIntentHandler = {
     }
 };
 /* *
- * SessionEndedRequest notifies that a session was ended. This handler will be triggered when a currently open 
- * session is closed for one of the following reasons: 1) The user says "exit" or "quit". 2) The user does not 
- * respond or says something that does not match an intent defined in your voice model. 3) An error occurs 
+ * SessionEndedRequest notifies that a session was ended. This handler will be triggered when a currently open
+ * session is closed for one of the following reasons: 1) The user says "exit" or "quit". 2) The user does not
+ * respond or says something that does not match an intent defined in your voice model. 3) An error occurs
  * */
 const SessionEndedRequestHandler = {
     canHandle(handlerInput) {
@@ -119,8 +130,8 @@ const SessionEndedRequestHandler = {
 };
 /* *
  * The intent reflector is used for interaction model testing and debugging.
- * It will simply repeat the intent the user said. You can create custom handlers for your intents 
- * by defining them above, then also adding them to the request handler chain below 
+ * It will simply repeat the intent the user said. You can create custom handlers for your intents
+ * by defining them above, then also adding them to the request handler chain below
  * */
 const IntentReflectorHandler = {
     canHandle(handlerInput) {
@@ -139,7 +150,7 @@ const IntentReflectorHandler = {
 /**
  * Generic error handling to capture any syntax or routing errors. If you receive an error
  * stating the request handler chain is not found, you have not implemented a handler for
- * the intent being invoked or included it in the skill builder below 
+ * the intent being invoked or included it in the skill builder below
  * */
 const ErrorHandler = {
     canHandle() {
