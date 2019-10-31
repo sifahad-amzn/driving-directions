@@ -48,9 +48,11 @@ const GetDriveTimeIntentHandler = {
     async handle(handlerInput) {
         console.log('now handling');
         let speakOutput = 'This is a test';
+        let origin = "NASA Sunnyvale";
+        let destination = Alexa.getSlotValue(handlerInput.requestEnvelope,'destination') == null ? "Google HQ" : Alexa.getSlotValue(handlerInput.requestEnvelope,'destination');
         try{
-            await maps.getDirections("NASA Sunnyvale", "Google HQ").then(function(obj){
-                speakOutput = 'It will take you ' + obj.duration.text+ ' to get to your location';
+            await maps.getDirections(origin, destination).then(function(obj){
+                speakOutput = 'It will take you ' + obj.duration.text+ ' to get to ' + destination;
             }).catch(function(obj){
                 speakOutput = 'It will take you 5 minutes to get to your location';
             });

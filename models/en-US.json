@@ -30,9 +30,13 @@
                 },
                 {
                     "name": "GetDriveTimeIntent",
-                    "slots": [],
+                    "slots": [{
+                        "name": "destination",
+                        "type": "AMAZON.SearchQuery"
+                    }],
                     "samples": [
-                        "how long"
+                        "how long",
+                        "how long till I get to {destination}"
                     ]
                 },
                 {
