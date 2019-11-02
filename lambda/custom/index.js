@@ -48,13 +48,13 @@ const GetDriveTimeIntentHandler = {
     async handle(handlerInput) {
         console.log('now handling');
         let speakOutput = 'This is a test';
-        let origin = "NASA Sunnyvale";
-        let destination = Alexa.getSlotValue(handlerInput.requestEnvelope,'destination') == null ? "Google HQ" : Alexa.getSlotValue(handlerInput.requestEnvelope,'destination');
+        let origin = getOrigin(handlerInput.requestEnvelope);
+        let destination = getDestination(handlerInput.requestEnvelope);
         try{
-            await maps.getDirections(origin, destination).then(function(obj){
-                speakOutput = 'It will take you ' + obj.duration.text+ ' to get to ' + destination;
+            await maps.getDirections(origin.value, destination.value).then(function(obj){
+                speakOutput = 'It will take you ' + obj.duration.text+ ' to reach ' + destination.spokenvalue;
             }).catch(function(obj){
-                speakOutput = 'It will take you 5 minutes to get to your location';
+                speakOutput = 'I could not find directions to ' + destination.spokenvalue + '. Do you mind trying again?';
             });
         } catch(error){
             speakOutput = 'I hit an error';
@@ -180,6 +180,63 @@ const LocalisationRequestInterceptor = {
         });
     }
 };
+
+/**
+ * This function returns the interpreted destination from the voice utterance
+ */
+const getDestination = function(obj){
+    let parsedValue = Alexa.getSlotValue(obj,'destination');
+    let destination = {spokenvalue: parsedValue, value: parsedValue};
+    console.log(destination);
+    if (typeof parsedValue == 'undefined') {
+        console.log('point 1 reached');
+        destination.spokenvalue = "Google HQ";
+        destination.value = "Google HQ";
+    } else if (parsedValue.toLowerCase() == 'home' || parsedValue.toLowerCase() == 'office') {
+        console.log('point 2 reached');
+        //destination.value = parsedValue;
+        //if address in address book, return from address book
+        //else reprompt to get address
+    } else {
+        console.log('point 3 reached');
+        //if additional entry in address book return from address book
+        //else return parsed text value 
+    }
+    console.log(destination);
+    return destination;
+};
+
+/**
+ * This function returns the interpreted origin from the voice utterance
+ */
+const getOrigin = function(obj){
+    let origin = {spokenvalue: 'Not found', value: 'NASA Sunnyvale'};
+    var isGeoSupported = obj.context.System.device.supportedInterfaces.hasOwnProperty('Geolocation');
+    var geoObject = obj.context.Geolocation;
+    if (isGeoSupported) {
+        origin.value = geoObject.coordinate.latitudeInDegrees+","+geoObject.coordinate.longitudeInDegrees;
+        origin.spokenvalue = 'your location';
+    }
+   return origin;
+};
+
+const requestInterceptor = {
+    process(handlerInput) {
+      const event = handlerInput.requestEnvelope;
+      var fake_auto = true;
+      if (fake_auto) {
+        event.context.Geolocation = {
+          coordinate: {
+            latitudeInDegrees: '37.38296377',
+            longitudeInDegrees: '-121.9762398',
+          },
+        };
+  
+        event.context.Automotive = {};
+        event.context.System.device.supportedInterfaces.Geolocation = {};
+      }
+    }
+};
 /**
  * This handler acts as the entry point for your skill, routing all request and response
  * payloads to the handlers above. Make sure any new handlers or interceptors you've
@@ -198,6 +255,7 @@ exports.handler = Alexa.SkillBuilders.custom()
     .addErrorHandlers(
         ErrorHandler)
     .addRequestInterceptors(
-        LocalisationRequestInterceptor)
+        LocalisationRequestInterceptor,
+        requestInterceptor)
     .withCustomUserAgent('sample/hello-world/v1.2')
     .lambda();
