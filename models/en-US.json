@@ -30,13 +30,191 @@
                 },
                 {
                     "name": "GetDriveTimeIntent",
-                    "slots": [{
-                        "name": "destination",
-                        "type": "AMAZON.SearchQuery"
-                    }],
+                    "slots": [
+                        {
+                            "name": "destination",
+                            "type": "AMAZON.SearchQuery",
+                            "samples": [
+                                "Take me to {destination}",
+                                "I want to go to {destination}",
+                                "{destination}"
+                            ]
+                        }
+                    ],
                     "samples": [
-                        "how long",
-                        "how long till I get to {destination}"
+                        "What is the drive time to {destination}",
+                        "When will I get to {destination}",
+                        "When will I get to {destination} by drive",
+                        "When will I reach {destination}",
+                        "When will I reach {destination} by drive",
+                        "How long will it take me to get to {destination}",
+                        "How long will it take me to drive to {destination}",
+                        "How long will it take me to reach {destination}",
+                        "How long will it take to get to {destination}",
+                        "How long will it take to drive to {destination}",
+                        "How long will it take to reach {destination}",
+                        "How long till {destination}",
+                        "How long to reach {destination}",
+                        "How long to drive to {destination}",
+                        "What's the traffic on the way to {destination}",
+                        "What's the traffic like to {destination}",
+                        "What's the traffic like on the way to {destination}",
+                        "Check the drive time to {destination}",
+                        "Check the drive time is to {destination}",
+                        "Check what the drive time is to {destination}",
+                        "Check what is the drive time to {destination}",
+                        "Check when will I get to {destination}",
+                        "Check when I will get to {destination}",
+                        "Check when will I get to {destination} by drive",
+                        "Check when I will get to {destination} by drive",
+                        "Check when will I reach {destination}",
+                        "Check when I will reach {destination}",
+                        "Check when will I reach {destination} by drive",
+                        "Check When I will reach {destination} by drive",
+                        "Check how long will it take me to get to {destination}",
+                        "Check how long will it take me to drive to {destination}",
+                        "Check how long will it take me to reach {destination}",
+                        "Check how long will it take to get to {destination}",
+                        "Check how long will it take to drive to {destination}",
+                        "Check how long will it take to reach {destination}",
+                        "Check how long till {destination}",
+                        "Check how long to reach {destination}",
+                        "Check how long to drive to {destination}",
+                        "Check what's the traffic on the way to {destination}",
+                        "Check the traffic on the way to {destination}",
+                        "Check the traffic to {destination}",
+                        "Check what's the traffic like to {destination}",
+                        "Check what's the traffic like on the way to {destination}",
+                        "Get the drive time to {destination}",
+                        "Get the drive time is to {destination}",
+                        "Get what the drive time is to {destination}",
+                        "Get what is the drive time to {destination}",
+                        "Get when will I get to {destination}",
+                        "Get when I will get to {destination}",
+                        "Get when will I get to {destination} by drive",
+                        "Get when I will get to {destination} by drive",
+                        "Get when will I reach {destination}",
+                        "Get when I will reach {destination}",
+                        "Get when will I reach {destination} by drive",
+                        "Get When I will reach {destination} by drive",
+                        "Get how long will it take me to get to {destination}",
+                        "Get how long will it take me to drive to {destination}",
+                        "Get how long will it take me to reach {destination}",
+                        "Get how long will it take to get to {destination}",
+                        "Get how long will it take to drive to {destination}",
+                        "Get how long will it take to reach {destination}",
+                        "Get how long till {destination}",
+                        "Get how long to reach {destination}",
+                        "Get how long to drive to {destination}",
+                        "Get what's the traffic on the way to {destination}",
+                        "Get the traffic on the way to {destination}",
+                        "Get the traffic to {destination}",
+                        "Get what's the traffic like to {destination}",
+                        "Get what's the traffic like on the way to {destination}",
+                        "Find the drive time to {destination}",
+                        "Find the drive time is to {destination}",
+                        "Find what the drive time is to {destination}",
+                        "Find what is the drive time to {destination}",
+                        "Find when will I get to {destination}",
+                        "Find when I will get to {destination}",
+                        "Find when will I get to {destination} by drive",
+                        "Find when I will get to {destination} by drive",
+                        "Find when will I reach {destination}",
+                        "Find when I will reach {destination}",
+                        "Find when will I reach {destination} by drive",
+                        "Find When I will reach {destination} by drive",
+                        "Find how long will it take me to get to {destination}",
+                        "Find how long will it take me to drive to {destination}",
+                        "Find how long will it take me to reach {destination}",
+                        "Find how long will it take to get to {destination}",
+                        "Find how long will it take to drive to {destination}",
+                        "Find how long will it take to reach {destination}",
+                        "Find how long till {destination}",
+                        "Find how long to reach {destination}",
+                        "Find how long to drive to {destination}",
+                        "Find what's the traffic on the way to {destination}",
+                        "Find the traffic on the way to {destination}",
+                        "Find the traffic to {destination}",
+                        "Find what's the traffic like to {destination}",
+                        "Find what's the traffic like on the way to {destination}",
+                        "Find out the drive time to {destination}",
+                        "Find out the drive time is to {destination}",
+                        "Find out what the drive time is to {destination}",
+                        "Find out what is the drive time to {destination}",
+                        "Find out when will I get to {destination}",
+                        "Find out when I will get to {destination}",
+                        "Find out when will I get to {destination} by drive",
+                        "Find out when I will get to {destination} by drive",
+                        "Find out when will I reach {destination}",
+                        "Find out when I will reach {destination}",
+                        "Find out when will I reach {destination} by drive",
+                        "Find out When I will reach {destination} by drive",
+                        "Find out how long will it take me to get to {destination}",
+                        "Find out how long will it take me to drive to {destination}",
+                        "Find out how long will it take me to reach {destination}",
+                        "Find out how long will it take to get to {destination}",
+                        "Find out how long will it take to drive to {destination}",
+                        "Find out how long will it take to reach {destination}",
+                        "Find out how long till {destination}",
+                        "Find out how long to reach {destination}",
+                        "Find out how long to drive to {destination}",
+                        "Find out what's the traffic on the way to {destination}",
+                        "Find out the traffic on the way to {destination}",
+                        "Find out the traffic to {destination}",
+                        "Find out what's the traffic like to {destination}",
+                        "Find out what's the traffic like on the way to {destination}",
+                        "Look up the drive time to {destination}",
+                        "Look up the drive time is to {destination}",
+                        "Look up what the drive time is to {destination}",
+                        "Look up what is the drive time to {destination}",
+                        "Look up when will I get to {destination}",
+                        "Look up when I will get to {destination}",
+                        "Look up when will I get to {destination} by drive",
+                        "Look up when I will get to {destination} by drive",
+                        "Look up when will I reach {destination}",
+                        "Look up when I will reach {destination}",
+                        "Look up when will I reach {destination} by drive",
+                        "Look up When I will reach {destination} by drive",
+                        "Look up how long will it take me to get to {destination}",
+                        "Look up how long will it take me to drive to {destination}",
+                        "Look up how long will it take me to reach {destination}",
+                        "Look up how long will it take to get to {destination}",
+                        "Look up how long will it take to drive to {destination}",
+                        "Look up how long will it take to reach {destination}",
+                        "Look up how long till {destination}",
+                        "Look up how long to reach {destination}",
+                        "Look up how long to drive to {destination}",
+                        "Look up what's the traffic on the way to {destination}",
+                        "Look up the traffic on the way to {destination}",
+                        "Look up the traffic to {destination}",
+                        "Look up what's the traffic like to {destination}",
+                        "Look up what's the traffic like on the way to {destination}",
+                        "Look for the drive time to {destination}",
+                        "Look for the drive time is to {destination}",
+                        "Look for what the drive time is to {destination}",
+                        "Look for what is the drive time to {destination}",
+                        "Look for when will I get to {destination}",
+                        "Look for when I will get to {destination}",
+                        "Look for when will I get to {destination} by drive",
+                        "Look for when I will get to {destination} by drive",
+                        "Look for when will I reach {destination}",
+                        "Look for when I will reach {destination}",
+                        "Look for when will I reach {destination} by drive",
+                        "Look for When I will reach {destination} by drive",
+                        "Look for how long will it take me to get to {destination}",
+                        "Look for how long will it take me to drive to {destination}",
+                        "Look for how long will it take me to reach {destination}",
+                        "Look for how long will it take to get to {destination}",
+                        "Look for how long will it take to drive to {destination}",
+                        "Look for how long will it take to reach {destination}",
+                        "Look for how long till {destination}",
+                        "Look for how long to reach {destination}",
+                        "Look for how long to drive to {destination}",
+                        "Look for what's the traffic on the way to {destination}",
+                        "Look for the traffic on the way to {destination}",
+                        "Look for the traffic to {destination}",
+                        "Look for what's the traffic like to {destination}",
+                        "Look for what's the traffic like on the way to {destination}"
                     ]
                 },
                 {
@@ -49,6 +227,60 @@
                 }
             ],
             "types": []
-        }
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "GetDriveTimeIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "destination",
+                            "type": "AMAZON.SearchQuery",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.836604867090.1139399904027"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "delegationStrategy": "ALWAYS"
+        },
+        "prompts": [
+            {
+                "id": "Elicit.Slot.836604867090.1139399904027",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "I didnt catch that. Where did you want to go?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Sorry, I must have missed that. Can you remind me where you wanted to go?"
+                    }
+                ]
+            },
+            {
+                "id": "Slot.Validation.1125051835288.771811333468.1298854151354",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "What did you want me to do again?"
+                    }
+                ]
+            },
+            {
+                "id": "Slot.Validation.1125051835288.1523098354708.92008405020",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "What did you want me to do again?"
+                    }
+                ]
+            }
+        ]
     }
 }
