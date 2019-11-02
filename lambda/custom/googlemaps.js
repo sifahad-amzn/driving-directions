@@ -18,7 +18,7 @@ module.exports.getDirections = function(start, end) {
     console.log(JSON.stringify(directions));
 
     var googleMapsClient = googleMaps.createClient({
-      key: 'AIzaSyC_XU514F53rdBKza1UdX69zdrTkGi9IU8',
+      key: '',
       Promise: Promise
     });
 
