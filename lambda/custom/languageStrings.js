@@ -8,7 +8,7 @@
 module.exports = {
     en: {
         translation: {
-            WELCOME_MSG: 'Welcome, you can say Hello or Help. Which would you like to try?',
+            WELCOME_MSG: 'Your copilot has a message for you. It can get your driving time for anywhere you can drive to. Try saying Ask co-pilot how long till Disneyland.',
             HELLO_MSG: 'Hello World!',
             HELP_MSG: 'You can say hello to me! How can I help?',
             GOODBYE_MSG: 'Goodbye!',
