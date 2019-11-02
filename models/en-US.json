@@ -1,7 +1,7 @@
 {
     "interactionModel": {
         "languageModel": {
-            "invocationName": "drive timer",
+            "invocationName": "copilot",
             "intents": [
                 {
                     "name": "AMAZON.CancelIntent",

@@ -52,12 +52,12 @@ const GetDriveTimeIntentHandler = {
         let destination = getDestination(handlerInput.requestEnvelope);
         try{
             await maps.getDirections(origin.value, destination.value).then(function(obj){
-                speakOutput = 'It will take you ' + obj.duration.text+ ' to reach ' + destination.spokenvalue;
+                speakOutput = 'Your co-pilot says that ' + destination.spokenvalue + 'is ' + obj.distance.text + ' away. It will take you ' + obj.duration.text+ ' to reach there';
             }).catch(function(obj){
-                speakOutput = 'I could not find directions to ' + destination.spokenvalue + '. Do you mind trying again?';
+                speakOutput = 'Your co-pilot could not find directions to ' + destination.spokenvalue + '. Do you mind trying again?';
             });
         } catch(error){
-            speakOutput = 'I hit an error';
+            speakOutput = 'Your co-pilot hit a snag, be gentle with it, and try again';
         }
         return handlerInput.responseBuilder
         .speak(speakOutput)
